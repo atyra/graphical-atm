@@ -95,5 +95,12 @@ public class HomeView extends JPanel implements ActionListener {
 		// user clicking a button, typing in a textfield, etc.).
 		//
 		// feel free to use my action listener in LoginView.java as an example.
+		Object source = e.getSource();
+		
+		if (source.equals(logoutButton)) {
+			//NEED TO TURN ACCOUNT NULL
+			manager.switchTo(ATM.LOGIN_VIEW);
+		}
+		
 	}
 }
