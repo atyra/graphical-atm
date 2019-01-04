@@ -56,6 +56,10 @@ public class ViewManager {
 		}
 	}
 	
+	public boolean insertAccount(BankAccount account) {
+		return insertAccount(account);
+	}
+	
 	/**
 	 * Switches the active (or visible) view upon request.
 	 * 
