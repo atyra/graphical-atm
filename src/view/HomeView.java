@@ -15,6 +15,9 @@ public class HomeView extends JPanel implements ActionListener {
 	
 	private ViewManager manager;		// manages interactions between the views, model, and database
 	private JButton logoutButton;
+	private JButton depositButton;
+	private JButton withdrawButton;
+	private JButton transferButton;
 	
 	/**
 	 * Constructs an instance (or objects) of the HomeView class.
@@ -46,6 +49,9 @@ public class HomeView extends JPanel implements ActionListener {
 		
 		this.setLayout(null);
 		
+		initDepositButton();
+		initWithdrawButton();
+		initTransferButton();
 		initLogoutButton();
 		// TODO
 		//
@@ -69,11 +75,36 @@ public class HomeView extends JPanel implements ActionListener {
 	
 	private void initLogoutButton() {	
 		logoutButton = new JButton("Logout");
-		logoutButton.setBounds(205, 180, 200, 35);
+		logoutButton.setBounds(205, 300, 200, 35);
 		logoutButton.addActionListener(this);
 		
 		this.add(logoutButton);
 	}
+	
+	private void initDepositButton() {	
+		logoutButton = new JButton("Deposit");
+		logoutButton.setBounds(205, 180, 200, 35);
+		logoutButton.addActionListener(this);
+		
+		this.add(depositButton);
+	}
+	
+	private void initWithdrawButton() {	
+		logoutButton = new JButton("Withdraw");
+		logoutButton.setBounds(205, 220, 200, 35);
+		logoutButton.addActionListener(this);
+		
+		this.add(withdrawButton);
+	}
+	
+	private void initTransferButton() {	
+		logoutButton = new JButton("Transfer");
+		logoutButton.setBounds(205, 260, 200, 35);
+		logoutButton.addActionListener(this);
+		
+		this.add(transferButton);
+	}
+	
 	
 	
 	
