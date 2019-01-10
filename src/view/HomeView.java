@@ -82,25 +82,25 @@ public class HomeView extends JPanel implements ActionListener {
 	}
 	
 	private void initDepositButton() {	
-		logoutButton = new JButton("Deposit");
-		logoutButton.setBounds(205, 180, 200, 35);
-		logoutButton.addActionListener(this);
+		depositButton = new JButton("Deposit");
+		depositButton.setBounds(205, 180, 200, 35);
+		depositButton.addActionListener(this);
 		
 		this.add(depositButton);
 	}
 	
 	private void initWithdrawButton() {	
-		logoutButton = new JButton("Withdraw");
-		logoutButton.setBounds(205, 220, 200, 35);
-		logoutButton.addActionListener(this);
+		withdrawButton = new JButton("Withdraw");
+		withdrawButton.setBounds(205, 220, 200, 35);
+		withdrawButton.addActionListener(this);
 		
 		this.add(withdrawButton);
 	}
 	
 	private void initTransferButton() {	
-		logoutButton = new JButton("Transfer");
-		logoutButton.setBounds(205, 260, 200, 35);
-		logoutButton.addActionListener(this);
+		transferButton = new JButton("Transfer");
+		transferButton.setBounds(205, 260, 200, 35);
+		transferButton.addActionListener(this);
 		
 		this.add(transferButton);
 	}
@@ -131,6 +131,18 @@ public class HomeView extends JPanel implements ActionListener {
 		if (source.equals(logoutButton)) {
 			//NEED TO TURN ACCOUNT NULL
 			manager.switchTo(ATM.LOGIN_VIEW);
+		}
+		else if (source.equals(depositButton)) {
+			//NEED TO TURN ACCOUNT NULL
+			manager.switchTo(ATM.DEPOSIT_VIEW);
+		}
+		else if (source.equals(withdrawButton)) {
+			//NEED TO TURN ACCOUNT NULL
+			manager.switchTo(ATM.WITHDRAW_VIEW);
+		}
+		else if (source.equals(transferButton)) {
+			//NEED TO TURN ACCOUNT NULL
+			manager.switchTo(ATM.TRANSFER_VIEW);
 		}
 		
 	}

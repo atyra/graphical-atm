@@ -29,6 +29,9 @@ public class ATM extends JFrame {
 	public final static String LOGIN_VIEW = "LOGIN_VIEW";
 	public final static String CREATE_VIEW = "CREATE_VIEW";
 	public final static String HOME_VIEW = "HOME_VIEW";
+	public final static String DEPOSIT_VIEW = "DEPOSIT_VIEW";
+	public final static String WITHDRAW_VIEW = "WITHDRAW_VIEW";
+	public final static String TRANSFER_VIEW = "TRANSFER_VIEW";
 	
 	/*
 	 * Indexes for views as they are stored in CardLayout.
