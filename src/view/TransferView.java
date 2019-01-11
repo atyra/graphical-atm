@@ -1,12 +1,17 @@
 package view;
 
+import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.IOException;
 import java.io.ObjectOutputStream;
 
 import javax.swing.JButton;
+import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.JPasswordField;
+import javax.swing.JTextField;
+import javax.swing.SwingConstants;
 
 import controller.ViewManager;
 
@@ -15,6 +20,11 @@ public class TransferView extends JPanel implements ActionListener {
 	
 	private ViewManager manager;		// manages interactions between the views, model, and database
 	private JButton cancelButton;
+	private JButton confirmButton;
+	private JTextField amountField;
+	private JTextField accountField;
+	private double amount;
+	private BankAccount account;
 	
 	
 	/**
@@ -27,6 +37,7 @@ public class TransferView extends JPanel implements ActionListener {
 		super();
 		
 		this.manager = manager;
+		this.amount = 0;
 		initialize();
 	}
 	
@@ -47,6 +58,8 @@ public class TransferView extends JPanel implements ActionListener {
 		
 		this.setLayout(null);
 		
+		initAmountField();
+		initConfrimButton();
 		initCancelButton();
 		
 		// TODO
@@ -77,6 +90,40 @@ public class TransferView extends JPanel implements ActionListener {
 		this.add(cancelButton);
 	}
 	
+	private void initAmountField() {
+		JLabel label = new JLabel("Amount:", SwingConstants.RIGHT);
+		label.setBounds(100, 140, 95, 35);
+		label.setLabelFor(amountField);
+		label.setFont(new Font("DialogInput", Font.BOLD, 14));
+		
+		amountField = new JTextField(20);
+		amountField.setBounds(205, 140, 200, 35);
+		
+		this.add(label);
+		this.add(amountField);
+	}
+	
+	private void initAccountField() {
+		JLabel label = new JLabel("Destination Account:", SwingConstants.RIGHT);
+		label.setBounds(100, 140, 95, 35);
+		label.setLabelFor(amountField);
+		label.setFont(new Font("DialogInput", Font.BOLD, 14));
+		
+		accountField = new JTextField(20);
+		accountField.setBounds(205, 140, 200, 35);
+		
+		this.add(label);
+		this.add(accountField);
+	}
+	
+	private void initConfrimButton() {
+		confirmButton = new JButton("Confrim");
+		confirmButton.setBounds(205, 260, 200, 35);
+		confirmButton.addActionListener(this);
+		
+		this.add(confirmButton);
+	}
+	
 	///////////////////// OVERRIDDEN METHODS //////////////////////////////////////////
 	
 	/*
@@ -98,7 +145,11 @@ public class TransferView extends JPanel implements ActionListener {
 		Object source = e.getSource();
 		
 		if (source.equals(cancelButton)) {
-			//NEED TO TURN ACCOUNT NULL
+			manager.switchTo(ATM.HOME_VIEW);
+		}
+		else if (source.equals(confirmButton)) {
+			amount = Double.parseDouble(amountField.getText());
+			manager.transfer(account, amount);
 			manager.switchTo(ATM.HOME_VIEW);
 		}
 		

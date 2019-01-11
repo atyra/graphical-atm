@@ -60,6 +60,18 @@ public class ViewManager {
 		return insertAccount(account);
 	}
 	
+	public int deposit(double amount) {
+		return deposit(amount);
+	}
+	
+	public int withdraw(double amount) {
+		return withdraw(amount);
+	}
+	
+	public int transfer(BankAccount destination, double amount) {
+		return transfer(destination, amount);
+	}
+	
 	/**
 	 * Switches the active (or visible) view upon request.
 	 * 
