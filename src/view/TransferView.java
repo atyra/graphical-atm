@@ -24,7 +24,7 @@ public class TransferView extends JPanel implements ActionListener {
 	private JTextField amountField;
 	private JTextField accountField;
 	private double amount;
-	private BankAccount account;
+	//private BankAccount account;
 	
 	
 	/**
@@ -59,6 +59,7 @@ public class TransferView extends JPanel implements ActionListener {
 		this.setLayout(null);
 		
 		initAmountField();
+		initAccountField();
 		initConfrimButton();
 		initCancelButton();
 		
@@ -104,13 +105,13 @@ public class TransferView extends JPanel implements ActionListener {
 	}
 	
 	private void initAccountField() {
-		JLabel label = new JLabel("Destination Account:", SwingConstants.RIGHT);
-		label.setBounds(100, 140, 95, 35);
+		JLabel label = new JLabel("New Account:", SwingConstants.RIGHT);
+		label.setBounds(100, 100, 100, 35);
 		label.setLabelFor(amountField);
 		label.setFont(new Font("DialogInput", Font.BOLD, 14));
 		
 		accountField = new JTextField(20);
-		accountField.setBounds(205, 140, 200, 35);
+		accountField.setBounds(205, 100, 200, 35);
 		
 		this.add(label);
 		this.add(accountField);
