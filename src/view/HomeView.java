@@ -6,6 +6,7 @@ import java.io.IOException;
 import java.io.ObjectOutputStream;
 
 import javax.swing.JButton;
+import javax.swing.JLabel;
 import javax.swing.JPanel;
 
 import controller.ViewManager;
@@ -18,6 +19,8 @@ public class HomeView extends JPanel implements ActionListener {
 	private JButton depositButton;
 	private JButton withdrawButton;
 	private JButton transferButton;
+	private JLabel nameLabel;
+	private JLabel balanceLabel;
 	
 	/**
 	 * Constructs an instance (or objects) of the HomeView class.
@@ -53,6 +56,8 @@ public class HomeView extends JPanel implements ActionListener {
 		initWithdrawButton();
 		initTransferButton();
 		initLogoutButton();
+		initLabels();
+		
 		// TODO
 		//
 		// this is where you should build the HomeView (i.e., all the components that
@@ -105,8 +110,21 @@ public class HomeView extends JPanel implements ActionListener {
 		this.add(transferButton);
 	}
 	
+	private void initLabels() {
+		nameLabel = new JLabel("User: ");
+		nameLabel.setBounds(0, 0, 100, 35);
+		
+		balanceLabel = new JLabel("Balance: ");
+		balanceLabel.setBounds(0, 40, 100, 35);
+		
+		this.add(nameLabel);
+		this.add(balanceLabel);
+	}
 	
-	
+	public void updateLabels() {
+		nameLabel.setText("User: " + manager.getAccount().getUser().getName());
+		balanceLabel.setText("Balance: " + manager.getAccount().getBalance());
+	}
 	
 	///////////////////// OVERRIDDEN METHODS //////////////////////////////////////////
 	

@@ -150,8 +150,12 @@ public class TransferView extends JPanel implements ActionListener {
 		}
 		else if (source.equals(confirmButton)) {
 			amount = Double.parseDouble(amountField.getText());
-			manager.transfer(account, amount);
-			manager.switchTo(ATM.HOME_VIEW);
+			manager.findDestinationAccount(accountField.getText());
+			if (manager.transfer(amount) == ATM.SUCCESS) {
+				manager.switchTo(ATM.HOME_VIEW);
+			} else {
+				// error message?
+			}
 		}
 		
 	}

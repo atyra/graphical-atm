@@ -207,11 +207,11 @@ public class CreateView extends JPanel implements ActionListener {
 		label.setLabelFor(zipField);
 		label.setFont(new Font("DialogInput", Font.BOLD, 14));
 		
-		zipField = new JTextField(20);
-		zipField.setBounds(205, 380, 200, 35);
+		pinField = new JTextField(20);
+		pinField.setBounds(205, 380, 200, 35);
 		
 		this.add(label);
-		this.add(zipField);
+		this.add(pinField);
 	}
 	
 	private void writeObject(ObjectOutputStream oos) throws IOException {

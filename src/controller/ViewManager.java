@@ -8,6 +8,7 @@ import javax.swing.JOptionPane;
 import data.Database;
 import model.BankAccount;
 import view.ATM;
+import view.HomeView;
 import view.LoginView;
 
 public class ViewManager {
@@ -50,26 +51,40 @@ public class ViewManager {
 				
 				LoginView lv = ((LoginView) views.getComponents()[ATM.LOGIN_VIEW_INDEX]);
 				lv.updateErrorMessage("");
+				
+				HomeView hv = ((HomeView) views.getComponents()[ATM.HOME_VIEW_INDEX]);
+				hv.updateLabels();
 			}
 		} catch (NumberFormatException e) {
 			// ignore
 		}
 	}
 	
+	public void findDestinationAccount(String accountNumber) {
+		destination = db.getAccount(Long.parseLong(accountNumber));
+	}
+	
 	public boolean insertAccount(BankAccount account) {
-		return insertAccount(account);
+		return db.insertAccount(account);
 	}
 	
 	public int deposit(double amount) {
-		return deposit(amount);
+		System.out.println("depositing " + amount);
+		int status = account.deposit(amount);
+		System.out.println("status " + status);
+		return status;
 	}
 	
 	public int withdraw(double amount) {
-		return withdraw(amount);
+		return account.withdraw(amount);
 	}
 	
-	public int transfer(BankAccount destination, double amount) {
-		return transfer(destination, amount);
+	public int transfer(double amount) {
+		return account.transfer(destination, amount);
+	}
+	
+	public BankAccount getAccount() {
+		return account;
 	}
 	
 	/**
