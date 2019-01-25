@@ -248,8 +248,12 @@ public class CreateView extends JPanel implements ActionListener {
 			} */
 			else {
 				User newUser = new User(Integer.parseInt(pinField.getText()), Integer.parseInt(DOBField.getText()), Long.parseLong(phoneField.getText()), firstName, lastName, address, city, state, zip);
-				BankAccount newAccount = new BankAccount('Y', ThreadLocalRandom.current().nextLong(000000000, 999999999), 0, newUser);
+				long newAccountNum = ThreadLocalRandom.current().nextLong(000000000, 999999999);
+				BankAccount newAccount = new BankAccount('Y', newAccountNum, 0, newUser);
+				
 				manager.insertAccount(newAccount);
+				
+				System.out.println("Your account number: " + newAccountNum);
 			}
 			manager.switchTo(ATM.LOGIN_VIEW);
 			//todo stop if field is blank, state not real, dob not real, zip or phone numbers too long or short

@@ -112,7 +112,7 @@ public class HomeView extends JPanel implements ActionListener {
 	
 	private void initLabels() {
 		nameLabel = new JLabel("User: ");
-		nameLabel.setBounds(0, 0, 100, 35);
+		nameLabel.setBounds(0, 0, 130, 35);
 		
 		balanceLabel = new JLabel("Balance: ");
 		balanceLabel.setBounds(0, 40, 100, 35);

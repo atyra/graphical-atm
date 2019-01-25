@@ -22,6 +22,7 @@ public class DepositView extends JPanel implements ActionListener {
 	private JButton cancelButton;
 	private JButton confirmButton;
 	private JTextField amountField;
+	private HomeView hv;
 	private double amount;
 	
 	
@@ -135,6 +136,7 @@ public class DepositView extends JPanel implements ActionListener {
 		else if (source.equals(confirmButton)) {
 			amount = Double.parseDouble(amountField.getText());
 			manager.deposit(amount);
+		//	WORK WITH THIS hv.updateLabels();
 			manager.switchTo(ATM.HOME_VIEW);
 		}
 		

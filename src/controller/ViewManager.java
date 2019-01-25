@@ -76,7 +76,10 @@ public class ViewManager {
 	}
 	
 	public int withdraw(double amount) {
-		return account.withdraw(amount);
+		System.out.println("withdrawing " + amount);
+		int status = account.withdraw(amount);
+		System.out.println("status " + status);
+		return status;
 	}
 	
 	public int transfer(double amount) {
